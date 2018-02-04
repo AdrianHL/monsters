@@ -63,6 +63,12 @@ assertions describing the assumptions you are making.
 
 Visit the home page and pass the monsters parameter with the amount required and the size of the map (small or medium).
 
+For example 
+
+>http://127.0.0.1:8000/?size=medium&monsters=1000
+
+By default the size is small and the monsters is set to 100 
+
 ## License
 
 The *UK Postcodes Import and Lookup* project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

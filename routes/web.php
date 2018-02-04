@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $world = \Illuminate\Support\Facades\Artisan::call("generate:world", ['--monsters' => \Illuminate\Support\Facades\Input::get('monsters', 100), '--size' => \Illuminate\Support\Facades\Input::get('size', 'small`')]);
+    $world = \Illuminate\Support\Facades\Artisan::call("generate:world", ['--monsters' => \Illuminate\Support\Facades\Input::get('monsters', 100), '--size' => \Illuminate\Support\Facades\Input::get('size', 'small')]);
     echo \Illuminate\Support\Facades\Artisan::output();
 
     $world = \Illuminate\Support\Facades\Cache::get('world.left');
