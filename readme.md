@@ -67,7 +67,7 @@ For example
 
 >http://127.0.0.1:8000/?size=medium&monsters=1000
 
-By default the size is small and the monsters is set to 100 
+By default the size is small and the monsters is set to 10
 
 ## License
 
