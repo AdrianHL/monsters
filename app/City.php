@@ -181,11 +181,11 @@ class City
             return $this;
         }
 
-        if ($this->populatedBy)
+        if ($this->isPopulatedBy())
         {
             //The monsters kill each other
             $monster->setDead();
-            $this->populatedBy->setDead();
+            $this->isPopulatedBy()->setDead();
             //And the city is destroyed
             $this->destroy();
             //ToDo - Change to a custom Exception
@@ -194,5 +194,13 @@ class City
 
         $this->populatedBy = $monster;
         return $this;
+    }
+
+    /**
+     * @return Monster|null
+     */
+    public function isPopulatedBy()
+    {
+        return $this->populatedBy;
     }
 }

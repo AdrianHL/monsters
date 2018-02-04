@@ -115,15 +115,25 @@ class GenerateWorld extends Command
 
             foreach($monsters as $monster)
             {
+                if (!$monster->isAlive()) {
+                    continue;
+                }
+
                 $moveFrom = $monster->whereIs();
                 $moveTo = $moveFrom->getRandomAccessible();
-                if (!empty($moveTo)) {
+
+                if (!empty($moveTo))
+                {
                     $moveFrom->populate(null);
 
                     try {
                         $monster->isInCity($moveTo);
+
                     } catch (\Exception $ex) {
                         $world->cityDestroyed($moveTo);
+                        $monsterInCity = $moveTo->isPopulatedBy();
+                        unset($monsters[$monster->getName()]);
+                        unset($monsters[$monsterInCity->getName()]);
                         //ToDo - Move the HTML to an if as an extra parameter when using the command so the output is based on the format expected
                         $this->info($ex->getMessage() . "<br>");
                     }

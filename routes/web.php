@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
+    echo "<br>";
     $world = \Illuminate\Support\Facades\Artisan::call("generate:world", ['--monsters' => \Illuminate\Support\Facades\Input::get('monsters', 10), '--size' => \Illuminate\Support\Facades\Input::get('size', 'small')]);
     echo \Illuminate\Support\Facades\Artisan::output();
-
+    echo "<br>World Left<br><br>";
     $world = \Illuminate\Support\Facades\Cache::get('world.left');
     \Illuminate\Support\Facades\Cache::forget('world.left');
 
