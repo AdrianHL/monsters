@@ -26,34 +26,3 @@ Dixusno north=Mesmina west=Modema
 Dimilu north=Eludisnismu south=Emusnu east=Modema west=E
 Aluligige north=Modema south=Anu west=Emusnu
 Emusnu north=Dimilu south=Dolamisme east=Aluligige west=Aninige
-
-E north=Mu south=Aninige east=Dimilu west=Asmismu
-Mu north=Amasna south=E east=Eludisnismu west=Mudaxu
-Aninige north=E south=Du-Minime east=Emusnu west=Malexo
-Dimilu north=Eludisnismu south=Emusnu east=Modema west=E
-Asmismu north=Mudaxu south=Malexo east=E
-Malixo south=Enolmu east=Dixu west=Dodala
-Enolmu north=Malixo south=Dusmu east=Esmusno west=Ege
-Dixu south=Esmusno west=Malixo
-Dodala south=Ege east=Malixo west=Mo
-Ege north=Dodala south=Eludisnismu east=Enolmu west=Amasna
-Eludisnismu north=Ege south=Dimilu east=Dusmu west=Mu
-Amasna north=Mo south=Mu east=Ege west=Digisma
-Dolamisme north=Emusnu east=Anu west=Du-Minime
-Emusnu north=Dimilu south=Dolamisme east=Aluligige west=Aninige
-Anu north=Aluligige west=Dolamisme
-Du-Minime north=Aninige east=Dolamisme west=Mixu
-Mudaxu north=Digisma south=Asmismu east=Mu
-Malexo north=Asmismu south=Mixu east=Aninige
-Esmusno north=Dixu south=Mesmina west=Enolmu
-Modema north=Dusmu south=Aluligige east=Dixusno west=Dimilu
-Dusmu north=Enolmu south=Modema east=Mesmina west=Eludisnismu
-Aluligige north=Modema south=Anu west=Emusnu
-Dixusno north=Mesmina west=Modema
-Mixu north=Malexo east=Du-Minime
-Mesmina north=Esmusno south=Dixusno west=Dusmu
-Mo south=Amasna east=Dodala west=Anodago
-Digisma north=Anodago south=Mudaxu east=Amasna
-Anodago south=Digisma east=Mo
-
-
