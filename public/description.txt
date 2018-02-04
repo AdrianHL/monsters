@@ -1,9 +1,6 @@
-## UK Postcodes Import and Lookup
-
-**Laravel 5.5** project to handle random monster fights.
 
 You are given a map containing the names of cities in the non-existent
-world of X. The map is in a file, with one city per line.  The city
+world of X.  The map is in a file, with one city per line.  The city
 name is first, followed by 1-4 directions (north, south, east, or
 west).  Each one represents a road to another city that lies in that
 direction.
@@ -57,10 +54,3 @@ the world in the same format as the input file.
 Feel free to make assumptions (for example, that the city names will
 never contain numeric characters), but please add comments or
 assertions describing the assumptions you are making.
-
-
-## How it works
-
-## License
-
-The *UK Postcodes Import and Lookup* project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
