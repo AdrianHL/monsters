@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Monster;
 use App\World;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class GenerateWorld extends Command
 {
@@ -58,7 +59,7 @@ class GenerateWorld extends Command
 
         $world = new World();
 
-        $this->info("Processing the world information...");
+        //$this->info("Processing the world information...");
         $file = new \SplFileObject(public_path(sprintf('world_map_%s.txt', $size)));
 
         while (!$file->eof()) {
@@ -80,9 +81,6 @@ class GenerateWorld extends Command
             $world->addCityPairs($cityName, $northCity, $southCity, $eastCity, $westCity);
         }
 
-        $this->info("World Generated.");
-
-        $this->info(sprintf("The world is going to be populated with %d monsters.", $nMonsters));
 
         $monsters = [];
 
@@ -92,18 +90,18 @@ class GenerateWorld extends Command
 
             if (empty($rCity)) {
                 $this->info("There are no cities left so the monster cannot be placed in the world!");
-                return true;
+                return;
             }
 
             $monster = new Monster();
 
             try {
                 $monster->isInCity($rCity);
-
                 $monsters[$monster->getName()] = $monster;
             } catch (\Exception $ex) {
                 $world->cityDestroyed($rCity);
-                $this->info($ex->getMessage());
+                //ToDo - Move the HTML to an if as an extra parameter when using the command so the output is based on the format expected
+                $this->info($ex->getMessage() . "<br>");
             }
         }
 
@@ -121,10 +119,20 @@ class GenerateWorld extends Command
                 $moveTo = $moveFrom->getRandomAccessible();
                 if (!empty($moveTo)) {
                     $moveFrom->populate(null);
+
+                    try {
+                        $monster->isInCity($moveTo);
+                    } catch (\Exception $ex) {
+                        $world->cityDestroyed($moveTo);
+                        //ToDo - Move the HTML to an if as an extra parameter when using the command so the output is based on the format expected
+                        $this->info($ex->getMessage() . "<br>");
+                    }
+
                 } else {
-                    $this->info(sprintf("The monster %s is trapped in %s", $monster->getName(), $moveFrom->getName()));
+                    //$this->info(sprintf("The monster %s is trapped in %s", $monster->getName(), $moveFrom->getName()));
                     unset($monsters[$monster->getName()]);
                 }
+
             }
 
             //Keep running while there are more than one monster and it has iterate less than the maximum allowed
@@ -132,10 +140,6 @@ class GenerateWorld extends Command
         } while ($keepRunning);
 
 
-        echo $world;
-
-        $file = null;
-
-        return true;
+        Cache::put('world.left', (string) $world, 10);
     }
 }
