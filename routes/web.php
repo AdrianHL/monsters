@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $world = \Illuminate\Support\Facades\Artisan::call("generate:world", ['--monsters' => \Illuminate\Support\Facades\Input::get('monsters', 100), '--size' => \Illuminate\Support\Facades\Input::get('size', 'small`')]);
+    echo \Illuminate\Support\Facades\Artisan::output();
+
+    $world = \Illuminate\Support\Facades\Cache::get('world.left');
+    \Illuminate\Support\Facades\Cache::forget('world.left');
+
+    if ($world) {
+        echo str_replace(PHP_EOL, "<br>", $world);
+    }
 });

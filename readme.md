@@ -61,6 +61,8 @@ assertions describing the assumptions you are making.
 
 ## How it works
 
+Visit the home page and pass the monsters parameter with the amount required and the size of the map (small or medium).
+
 ## License
 
 The *UK Postcodes Import and Lookup* project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
