@@ -71,4 +71,4 @@ By default the size is small and the monsters is set to 10
 
 ## License
 
-The *UK Postcodes Import and Lookup* project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The *Monsters* project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
